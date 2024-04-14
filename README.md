@@ -67,3 +67,34 @@ To sum up, this algorithm efficiently identifies prime numbers by skipping unnec
 The program utilizes a master-slave architecture, with one master process and several child processes. The master assigns a range of numbers to each child process for prime number computation. Each child process communicates its findings back to the master process via pipes.
 
 To optimize performance, the master process divides the range of numbers such that the computation time for each child process is balanced.
+
+## Benchmark
+
+You can use the provided benchmark script to assess the performance of the Prime Number Finder and observe the impact of varying the number of processes. Below is a sample benchmark graph showcasing the program's performance:
+
+![Benchmark](./benchmark.png)
+
+To run the benchmark on your computer, follow these steps:
+
+1. Set up a virtual environment and install dependencies:
+    ```shell
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install matplotlib
+    ```
+
+2. Execute the benchmark script:
+    ```shell
+    python3 benchmark.py
+    ```
+
+You are free to adjust the benchmark parameters according to your needs. In the benchmark.py file, modify the following variables to specify the upper bounds and the number of processes to test:
+
+```python
+# List of upper bounds and number of processes to test
+upper_bounds = [100000, 200000, 300000, 400000,
+                500000, 600000, 700000, 800000, 900000, 1000000]
+num_processes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+Feel free to experiment with different values to assess the program's scalability and performance characteristics under various conditions.
